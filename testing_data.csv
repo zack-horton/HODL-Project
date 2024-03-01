@@ -1,0 +1,65 @@
+﻿query,slot filling
+What stocks are expected to have the highest increase in price for tomorrow?,O select-stock O O O O O order-by-forecasted_price_change-desc order-by-forecasted_price_change-desc O select-forecasted_price_change O O
+What stocks are forecasted or predicted to have the highest volatility in their price?,O select-stock O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility O O O
+What stocks are forecasted or predicted to have the lowest volatility in their price?,O select-stock O O O O O O O order-by-forecasted_volatility-asc select-forecasted_volatility O O O
+What stocks are forecasted or predicted to have the highest change in price?,O select-stock O O O O O O O order-by-forecasted_price_change-desc select-forecasted_price_change O O
+What stocks are forecasted or predicted to have the highest percent change in price?,O select-stock O O O O O O O order-by-percent_change-desc select-percent_change select-percent_change O O
+What stocks are forecasted or predicted to have the lowest change in price?,O select-stock O O O O O O O order-by-forecated_price_change-asc select-forecated_price_change O O
+What stocks are forecasted or predicted to have the lowest percent change in price?,O select-stock O O O O O O O order-by-percent_change-asc select-percent_change select-percent_change O O
+What stocks currently have the highest volatility in their price?,O select-stock O O O order-by-current_volatility-desc select-current_volatility O O O
+What stocks currently have the lowest volatility in their price?,O select-stock O O O order-by-current_volatility_asc select-current_volatility O O O
+What stocks have been or are going to be the most volatile?,O select-stock O O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility
+What stocks have been the easiest to predict according to mean directional accuracy or MDA?,O select-stock O O O order-by-model_mda_last_week-asc O O O O O select-model_mda_last_week select-model_mda_last_week O select-model_mda_last_week
+What stocks have been the easiest to predict according to model error?,O select-stock O O O order-by-model_error_last_week-asc O O O O select-model_error_last_week select-model_error_last_week
+What stocks have the highest current price?,O select-stock O O order-by-current_price-desc O select-current_price
+What stocks have the highest forecasted price?,O select-stock O O order-by-forecasted_price-desc O select-forecasted_price
+What stocks have the lowest current price?,O select-stock O O order-by-current_price-asc O select-current_price
+What stocks have the lowest forecasted price?,O select-stock O O order-by-forecasted_price-asc O select-forecastedp_rice
+What tickers are expected to have the highest increase in price for tomorrow?,O select-ticker O O O O O order-by-forecasted_price_change-desc order-by-forecasted_price_change-desc O select-forecasted_price_change O O
+What tickers are forecasted or predicted to have the highest volatility in their price?,O select-ticker O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility O O O
+What tickers are forecasted or predicted to have the lowest volatility in their price?,O select-ticker O O O O O O O order-by-forecasted_volatility-asc select-forecasted_volatility O O O
+What tickers are forecasted or predicted to have the highest change in price?,O select-ticker O O O O O O O order-by-forecasted_price_change-desc select-forecasted_price_change O O
+What tickers are forecasted or predicted to have the highest percent change in price?,O select-ticker O O O O O O O order-by-percent_change-desc select-percent_change select-percent_change O O
+What tickers are forecasted or predicted to have the lowest change in price?,O select-ticker O O O O O O O order-by-forecated_price_change-asc select-forecated_price_change O O
+What tickers are forecasted or predicted to have the lowest percent change in price?,O select-ticker O O O O O O O order-by-percent_change-asc select-percent_change select-percent_change O O
+What tickers currently have the highest volatility in their price?,O select-ticker O O O order-by-current_volatility-desc select-current_volatility O O O
+What tickers currently have the lowest volatility in their price?,O select-ticker O O O order-by-current_volatility_asc select-current_volatility O O O
+What tickers have been or are going to be the most volatile?,O select-ticker O O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility
+What tickers have been the easiest to predict according to mean directional accuracy or MDA?,O select-ticker O O O order-by-model_mda_last_week-asc O O O O O select-model_mda_last_week select-model_mda_last_week O select-model_mda_last_week
+What tickers have been the easiest to predict according to model error?,O select-ticker O O O order-by-model_error_last_week-asc O O O O select-model_error_last_week select-model_error_last_week
+What tickers have the highest current price?,O select-ticker O O order-by-current_price-desc O select-current_price
+What tickers have the highest forecasted price?,O select-ticker O O order-by-forecasted_price-desc O select-forecasted_price
+What tickers have the lowest current price?,O select-ticker O O order-by-current_price-asc O select-current_price
+What tickers have the lowest forecasted price?,O select-ticker O O order-by-forecasted_price-asc O select-forecastedp_rice
+What stocks and tickers are expected to have the highest increase in price for tomorrow?,O select-stock O select-ticker O O O O O order-by-forecasted_price_change-desc order-by-forecasted_price_change-desc O select-forecasted_price_change O O
+What stocks and tickers are forecasted or predicted to have the highest volatility in their price?,O select-stock O select-ticker O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility O O O
+What stocks and tickers are forecasted or predicted to have the lowest volatility in their price?,O select-stock O select-ticker O O O O O O O order-by-forecasted_volatility-asc select-forecasted_volatility O O O
+What stocks and tickers are forecasted or predicted to have the highest change in price?,O select-stock O select-ticker O O O O O O O order-by-forecasted_price_change-desc select-forecasted_price_change O O
+What stocks and tickers are forecasted or predicted to have the highest percent change in price?,O select-stock O select-ticker O O O O O O O order-by-percent_change-desc select-percent_change select-percent_change O O
+What stocks and tickers are forecasted or predicted to have the lowest change in price?,O select-stock O select-ticker O O O O O O O order-by-forecated_price_change-asc select-forecated_price_change O O
+What stocks and tickers are forecasted or predicted to have the lowest percent change in price?,O select-stock O select-ticker O O O O O O O order-by-percent_change-asc select-percent_change select-percent_change O O
+What stocks and tickers currently have the highest volatility in their price?,O select-stock O select-ticker O O O order-by-current_volatility-desc select-current_volatility O O O
+What stocks and tickers currently have the lowest volatility in their price?,O select-stock O select-ticker O O O order-by-current_volatility_asc select-current_volatility O O O
+What stocks and tickers have been or are going to be the most volatile?,O select-stock O select-ticker O O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility
+What stocks and tickers have been the easiest to predict according to mean directional accuracy or MDA?,O select-stock O select-ticker O O O order-by-model_mda_last_week-asc O O O O O select-model_mda_last_week select-model_mda_last_week O select-model_mda_last_week
+What stocks and tickers have been the easiest to predict according to model error?,O select-stock O select-ticker O O O order-by-model_error_last_week-asc O O O O select-model_error_last_week select-model_error_last_week
+What stocks and tickers have the highest current price?,O select-stock O select-ticker O O order-by-current_price-desc O select-current_price
+What stocks and tickers have the highest forecasted price?,O select-stock O select-ticker O O order-by-forecasted_price-desc O select-forecasted_price
+What stocks and tickers have the lowest current price?,O select-stock O select-ticker O O order-by-current_price-asc O select-current_price
+What stocks and tickers have the lowest forecasted price?,O select-stock O select-ticker O O order-by-forecasted_price-asc O select-forecastedp_rice
+What tickers and stocks are expected to have the highest increase in price for tomorrow?,O select-ticker O select-stock O O O O O order-by-forecasted_price_change-desc order-by-forecasted_price_change-desc O select-forecasted_price_change O O
+What tickers and stocks are forecasted or predicted to have the highest volatility in their price?,O select-ticker O select-stock O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility O O O
+What tickers and stocks are forecasted or predicted to have the lowest volatility in their price?,O select-ticker O select-stock O O O O O O O order-by-forecasted_volatility-asc select-forecasted_volatility O O O
+What tickers and stocks are forecasted or predicted to have the highest change in price?,O select-ticker O select-stock O O O O O O O order-by-forecasted_price_change-desc select-forecasted_price_change O O
+What tickers and stocks are forecasted or predicted to have the highest percent change in price?,O select-ticker O select-stock O O O O O O O order-by-percent_change-desc select-percent_change select-percent_change O O
+What tickers and stocks are forecasted or predicted to have the lowest change in price?,O select-ticker O select-stock O O O O O O O order-by-forecated_price_change-asc select-forecated_price_change O O
+What tickers and stocks are forecasted or predicted to have the lowest percent change in price?,O select-ticker O select-stock O O O O O O O order-by-percent_change-asc select-percent_change select-percent_change O O
+What tickers and stocks currently have the highest volatility in their price?,O select-ticker O select-stock O O O order-by-current_volatility-desc select-current_volatility O O O
+What tickers and stocks currently have the lowest volatility in their price?,O select-ticker O select-stock O O O order-by-current_volatility_asc select-current_volatility O O O
+What tickers and stocks have been or are going to be the most volatile?,O select-ticker O select-stock O O O O O O O O order-by-forecasted_volatility-desc select-forecasted_volatility
+What tickers and stocks have been the easiest to predict according to mean directional accuracy or MDA?,O select-ticker O select-stock O O O order-by-model_mda_last_week-asc O O O O O select-model_mda_last_week select-model_mda_last_week O select-model_mda_last_week
+What tickers and stocks have been the easiest to predict according to model error?,O select-ticker O select-stock O O O order-by-model_error_last_week-asc O O O O select-model_error_last_week select-model_error_last_week
+What tickers and stocks have the highest current price?,O select-ticker O select-stock O O order-by-current_price-desc O select-current_price
+What tickers and stocks have the highest forecasted price?,O select-ticker O select-stock O O order-by-forecasted_price-desc O select-forecasted_price
+What tickers and stocks have the lowest current price?,O select-ticker O select-stock O O order-by-current_price-asc O select-current_price
+What tickers and stocks have the lowest forecasted price?,O select-ticker O select-stock O O order-by-forecasted_price-asc O select-forecastedp_rice
