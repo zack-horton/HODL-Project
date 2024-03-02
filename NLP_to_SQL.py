@@ -87,9 +87,9 @@ history = model.fit(query_train, slots_train,
 model.evaluate(query_test, slots_test)
 
 # SAVE MODEL
-filename = 'nlp_to_sql.keras'
-# model.save(filename)
-# ZipFile('model_save.zip', mode='w').write(filename)
+filename = 'sql_transformer.keras'
+model.save(filename)
+ZipFile('model_save.zip', mode='w').write(filename)
 
 # EVALUATING SLOT ACCURACY
 def slot_filling_accuracy(actual, predicted, only_slots=False):

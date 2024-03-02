@@ -1,18 +1,15 @@
 import pandas as pd
+import numpy as np
+import tensorflow as tf
 
-example_slots = [
-    "o select-stock o o o o o order-by-forecasted_price_change-desc select-forecasted_price o o o o"
-    "o select-stock o select-forecasted_volatility o select-forecasted_volatility o o o order-by-forecasted_volatility-desc select-forecasted_volatility o o o",
-    "o select-stock o o o o o o o order-by-percent_change-asc select-percent_change select-percent_change o o",
-    "o select-stock o o o o o order-by-forecasted_price-desc select-forecasted_price o order-by-forecasted_volatility-asc select-forecasted_volatility"
-]
-example_prompts = [
-    "What 5 stocks are expected to have the highest increase in price for tomorrow?",
-    "What 10 stocks are forecasted or predicted to have the highest volatility in their price?",
-    "What 2 stocks are forecasted or predicted to have the lowest percent change in price?",
-    "What 8 stocks are predicted to have the highest price and lowest volatility"
-]
-data = pd.read_csv("prototype_table.csv")
+def predict_slots_query(query, model, query_vectorizer, slot_vectorizer):
+    sentence = query_vectorizer([query])
+
+    prediction = np.argmax(model.predict(sentence), axis=-1)[0]
+
+    inverse_vocab = dict(enumerate(slot_vectorizer.get_vocabulary()))
+    decoded_prediction = " ".join(inverse_vocab[int(i)] for i in prediction)
+    return decoded_prediction
 
 def SlotParser(slot_filling, prompt, stock_data):
     slot_filling = slot_filling.strip()
@@ -86,9 +83,3 @@ def SlotParser(slot_filling, prompt, stock_data):
     print(SQL_QUERY)
     
     return pandas_query, SQL_QUERY, all_data
-
-for (slot, prompt) in zip(example_slots, example_prompts):
-    print(slot)
-    print(prompt)
-    SlotParser(slot, prompt, data)
-    print()
