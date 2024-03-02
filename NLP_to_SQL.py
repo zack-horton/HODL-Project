@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from zipfile import ZipFile
 
 import tensorflow as tf
 from tensorflow import keras
@@ -11,8 +12,8 @@ from HODL import TransformerEncoder, PositionalEmbedding
 keras.utils.set_random_seed(2024)
 MAX_QUERY_LENGTH = 50  #size of input
 EMBED_DIM = 512  #dimension of embeddings
-DENSE_DIM = 64
-NUM_HEADS = 5  #number of multi-attention heads
+DENSE_DIM = 128
+NUM_HEADS = 8  #number of multi-attention heads
 DENSE_UNITS = 128  #num nodes in hidden layer
 BATCH_SIZE = 64  #batch size for training transformer
 EPOCHS = 10  #epochs for training transformer
@@ -57,17 +58,17 @@ slots_test = vectorize_slot_text(test_slotfilling)  #vectorized testing slots
 SLOT_VOCAB_SIZE = vectorize_slot_text.vocabulary_size()  #total vocabulary of slots
 
 # BUILD KERAS MODEL
-inputs = keras.input(shape=(MAX_QUERY_LENGTH,))
+inputs = keras.Input(shape=(MAX_QUERY_LENGTH,))
 embedding = PositionalEmbedding(MAX_QUERY_LENGTH,
                                 QUERY_VOCAB_SIZE,
                                 EMBED_DIM)
-x = embedding(input)
+x = embedding(inputs)
 encoder_out = TransformerEncoder(EMBED_DIM,
                                  DENSE_DIM,
                                  NUM_HEADS)(x)
-x = keras.layers.Dense(DENSE_UNITS, activation="relu")(encoder_out)
-x = keras.layers.Dropout(0.25)(x)
-outputs = keras.layers.Dense(SLOT_VOCAB_SIZE, activation="softmax")(x)
+x = keras.layers.Dense(DENSE_UNITS, activation="relu", name="Dense_Layer")(encoder_out)
+x = keras.layers.Dropout(0.25, name="Dropout_Layer")(x)
+outputs = keras.layers.Dense(SLOT_VOCAB_SIZE, activation="softmax", name="Softmax_Layer")(x)
 
 model = keras.Model(inputs, outputs)
 print()
@@ -84,6 +85,11 @@ history = model.fit(query_train, slots_train,
 
 # OUT-OF-SAMPLE TESTING
 model.evaluate(query_test, slots_test)
+
+# SAVE MODEL
+filename = 'nlp_to_sql.keras'
+# model.save(filename)
+# ZipFile('model_save.zip', mode='w').write(filename)
 
 # EVALUATING SLOT ACCURACY
 def slot_filling_accuracy(actual, predicted, only_slots=False):
@@ -112,12 +118,12 @@ print(f'Accuracy = {acc:.3f}')
 print(f'Accuracy on slots = {acc_slots:.3f}')
 
 # TEST-SET EVALUATION
-def predict_slots_query(query):
-    sentence = vectorize_query_text([query])
+def predict_slots_query(query, model, query_vectorizer, slot_vectorizer):
+    sentence = query_vectorizer([query])
 
     prediction = np.argmax(model.predict(sentence), axis=-1)[0]
 
-    inverse_vocab = dict(enumerate(vectorize_slot_text.get_vocabulary()))
+    inverse_vocab = dict(enumerate(slot_vectorizer.get_vocabulary()))
     decoded_prediction = " ".join(inverse_vocab[int(i)] for i in prediction)
     return decoded_prediction
 
@@ -125,5 +131,8 @@ for example, answer in zip(test_query, test_slotfilling):
     print()
     print("Query:\n", example)
     print("Answer:\n", answer)
-    print("Prediction:\n", predict_slots_query(example))
+    print("Prediction:\n", predict_slots_query(example, 
+                                               model, 
+                                               vectorize_query_text, 
+                                               vectorize_slot_text))
     print()
