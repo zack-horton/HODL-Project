@@ -1,0 +1,5 @@
+What stocks and tickers are projected to have the highest forecasted price?
+What stocks are currently the most volatile?
+What stocks have the lowest current price?
+What tickers have the lowest model error?
+What 8 stocks are predicted to have the highest price and lowest volatility?
