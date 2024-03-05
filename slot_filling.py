@@ -2,7 +2,7 @@ import pandas as pd
 from useful_functions import SlotParser
 
 example_slots = [
-    "o select-stock o o o o o order-by-forecasted_price_change-desc select-forecasted_price o o o o"
+    "o select-stock o o o o o order-by-forecasted_price_change-desc select-forecasted_price o o o o",
     "o select-stock o select-forecasted_volatility o select-forecasted_volatility o o o order-by-forecasted_volatility-desc select-forecasted_volatility o o o",
     "o select-stock o o o o o o o order-by-percent_change-asc select-percent_change select-percent_change o o",
     "o select-stock o o o o o order-by-forecasted_price-desc select-forecasted_price o order-by-forecasted_volatility-asc select-forecasted_volatility"
