@@ -55,7 +55,7 @@ vectorize_slot_text.adapt(train_slotfilling)  #build slot vocabulary
 slots_train = vectorize_slot_text(train_slotfilling)  #vectorized training slots
 
 #### BEGIN STREAMLIT APPLICATION ####
-st.title("Day-Trader GPT")
+st.title("SlotMarketSQL")
 st.write()
 st.write("Enter your question into the following textbox:")
 
