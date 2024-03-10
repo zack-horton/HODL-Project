@@ -13,7 +13,7 @@ example_prompts = [
     "What 2 stocks are forecasted or predicted to have the lowest percent change in price?",
     "What 8 stocks are predicted to have the highest price and lowest volatility"
 ]
-data = pd.read_csv("prototype_table.csv")
+data = pd.read_csv("output_df.csv")
 
 for (slot, prompt) in zip(example_slots, example_prompts):
     print(slot)

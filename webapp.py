@@ -26,7 +26,7 @@ transformer_model = keras.models.load_model("sql_transformer.keras", custom_obje
 })
 
 
-stock_data = pd.read_csv('prototype_table.csv')
+stock_data = pd.read_csv('output_df.csv')
 #####################################################
 
 # CREATE VECTORIZER (QUERY & SLOTS)
