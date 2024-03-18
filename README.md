@@ -4,6 +4,8 @@ Project developed as part of course: 15.773: Hands-on Deep Learning Project (Spr
 
 Collaborators: [Zack Horton](https://github.com/zack-horton), [Tanner Street](), Virginia Maguire, and Yutong Zhang
 
+[Link to Demo](https://youtu.be/6LSi1ffWxeE)
+
 **Description:**
 
 The primary goal of this project was to explore new and exciting applications of Deep Learning, expanding on the resources and  information learned during class. The application we chose was to analyze stock market prices for the S&P 500 through LSTMs, create an aggregate summary table (ideally utilized by a day-trader) from the LSTM forecasts, which could be queried through our transformer-based model via our streamlit application (see `webapp.py`). The transformer model was trained to conduct slot-filling, similar to the one that we discussed during class used for the ATIS dataset (more on that project described [here](https://catalog.ldc.upenn.edu/docs/LDC93S4B/corpus.html)). The training dataset (see `training_data.csv` and  `testing_data.csv`) was created through hand-labeling the questions related to our dataset. The training questions were generated via ChatGPT 3.5 after prompting it to create permutations of specific questions, those prompt questions were used as the test set data).
